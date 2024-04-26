@@ -1,6 +1,6 @@
 package hu.bme.mit.spaceship;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
 * Class storing and managing the torpedoes of a ship
@@ -14,11 +14,13 @@ public class TorpedoStore {
 
   private int torpedoCount = 0;
 
-  private Random generator;
+  private SecureRandom generator;
 
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
-    this.generator = new Random();
+    this.generator = new SecureRandom();
+    byte[] bytes = new byte[20];
+    generator.nextBytes(bytes);
 
     // update failure rate if it was specified in an environment variable
     String failureEnv = System.getenv("IVT_RATE");
