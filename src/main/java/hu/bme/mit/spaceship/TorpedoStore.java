@@ -14,12 +14,13 @@ public class TorpedoStore {
 
   private int torpedoCount = 0;
 
+  /* Added SecureRandom for extra layer of security */
   private SecureRandom generator;
 
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
     this.generator = new SecureRandom();
-    byte[] bytes = new byte[20];
+    byte[] bytes = new byte[20];  
     generator.nextBytes(bytes);
 
     // update failure rate if it was specified in an environment variable
