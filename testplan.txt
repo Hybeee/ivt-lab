@@ -1,0 +1,5 @@
+test no.1: SINGLE - first time firing - was primary store fired first?
+test no.2: SINGLE - single single -> is the second fired
+test no.3: SINGLE - single single 2nd empty -> attempt to fire first?
+test no.4: SINGLE - both empty -> nothing happens
+test no.3: ALL - both gets fired
